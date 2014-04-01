@@ -1,9 +1,9 @@
-package org.Th3Hermit.survivalgames.net;
+package org.Th3Hermit.hungergames.net;
 
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.SurvivalGames;
 
 
 public class Webserver extends Thread {

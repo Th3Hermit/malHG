@@ -1,9 +1,9 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import org.Th3Hermit.survivalgames.util.MessageUtil;
+import org.Th3Hermit.hungergames.util.MessageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;

@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.commands;
+package org.Th3Hermit.hungergames.commands;
 
 import org.bukkit.entity.Player;
 

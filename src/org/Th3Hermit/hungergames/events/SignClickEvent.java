@@ -1,6 +1,6 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
-import org.Th3Hermit.survivalgames.GameManager;
+import org.Th3Hermit.hungergames.GameManager;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;

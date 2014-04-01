@@ -1,7 +1,7 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

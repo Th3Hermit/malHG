@@ -1,11 +1,11 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 
 import java.lang.management.ManagementFactory;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;

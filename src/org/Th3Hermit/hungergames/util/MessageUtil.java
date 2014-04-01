@@ -1,10 +1,10 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.SurvivalGames;
 
 public class MessageUtil {
 

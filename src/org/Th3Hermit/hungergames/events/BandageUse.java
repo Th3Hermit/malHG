@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

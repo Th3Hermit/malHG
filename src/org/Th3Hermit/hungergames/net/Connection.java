@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.net;
+package org.Th3Hermit.hungergames.net;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

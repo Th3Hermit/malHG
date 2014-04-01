@@ -1,8 +1,8 @@
-package org.Th3Hermit.survivalgames.hooks;
+package org.Th3Hermit.hungergames.hooks;
 
 import net.milkbowl.vault.economy.Economy;
 
-import org.Th3Hermit.survivalgames.util.EconomyManager;
+import org.Th3Hermit.hungergames.util.EconomyManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

@@ -1,15 +1,15 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.Th3Hermit.survivalgames.Game.GameMode;
-import org.Th3Hermit.survivalgames.MessageManager.PrefixType;
-import org.Th3Hermit.survivalgames.api.PlayerLeaveArenaEvent;
-import org.Th3Hermit.survivalgames.stats.StatsManager;
-import org.Th3Hermit.survivalgames.util.Kit;
+import org.Th3Hermit.hungergames.Game.GameMode;
+import org.Th3Hermit.hungergames.MessageManager.PrefixType;
+import org.Th3Hermit.hungergames.api.PlayerLeaveArenaEvent;
+import org.Th3Hermit.hungergames.stats.StatsManager;
+import org.Th3Hermit.hungergames.util.Kit;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -232,7 +232,7 @@ public class GameManager {
 		return k;
 	}
 
-	//TODO: Actually make this countdown correctly
+	//TODO: Actually make this count down correctly
 	public void startGame(int a) {
 		getGame(a).countdown(10);
 	}

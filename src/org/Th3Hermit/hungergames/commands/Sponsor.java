@@ -1,6 +1,6 @@
-package org.Th3Hermit.survivalgames.commands;
+package org.Th3Hermit.hungergames.commands;
 
-import org.Th3Hermit.survivalgames.MessageManager;
+import org.Th3Hermit.hungergames.MessageManager;
 import org.bukkit.entity.Player;
 
 

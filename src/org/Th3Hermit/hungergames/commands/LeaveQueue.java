@@ -1,9 +1,9 @@
-package org.Th3Hermit.survivalgames.commands;
+package org.Th3Hermit.hungergames.commands;
 
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.entity.Player;
-
+import org.bukkit.ChatColor;
 
 
 public class LeaveQueue implements SubCommand{

@@ -1,8 +1,8 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SurvivalGames;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

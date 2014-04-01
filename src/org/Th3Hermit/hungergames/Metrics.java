@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 /*
 * Copyright 2011 Tyler Blair. All rights reserved.

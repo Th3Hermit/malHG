@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.logging;
+package org.Th3Hermit.hungergames.logging;
 
 
 

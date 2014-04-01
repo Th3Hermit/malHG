@@ -1,11 +1,11 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-import org.Th3Hermit.survivalgames.SettingsManager;
+import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 

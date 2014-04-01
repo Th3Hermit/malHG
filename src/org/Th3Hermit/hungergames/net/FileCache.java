@@ -1,10 +1,10 @@
-package org.Th3Hermit.survivalgames.net;
+package org.Th3Hermit.hungergames.net;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.SurvivalGames;
 
 
 

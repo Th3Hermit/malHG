@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,8 @@ import java.util.logging.Logger;
 
 
 
-import org.Th3Hermit.survivalgames.SettingsManager;
+
+import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 

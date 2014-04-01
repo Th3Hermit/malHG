@@ -1,11 +1,11 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
 
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.Game.GameMode;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.Game.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

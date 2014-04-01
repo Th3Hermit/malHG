@@ -1,13 +1,13 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
 import java.util.HashSet;
 import java.util.Random;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SurvivalGames;
-import org.Th3Hermit.survivalgames.Game.GameMode;
-import org.Th3Hermit.survivalgames.util.ChestRatioStorage;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.Game.GameMode;
+import org.Th3Hermit.hungergames.util.ChestRatioStorage;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;

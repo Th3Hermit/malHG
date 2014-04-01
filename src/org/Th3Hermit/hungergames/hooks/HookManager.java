@@ -1,9 +1,9 @@
-package org.Th3Hermit.survivalgames.hooks;
+package org.Th3Hermit.hungergames.hooks;
 
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.SettingsManager;
-import org.Th3Hermit.survivalgames.util.MessageUtil;
+import org.Th3Hermit.hungergames.SettingsManager;
+import org.Th3Hermit.hungergames.util.MessageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 

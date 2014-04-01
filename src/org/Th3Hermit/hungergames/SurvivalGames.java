@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,14 +7,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.Th3Hermit.survivalgames.events.*;
-import org.Th3Hermit.survivalgames.hooks.HookManager;
-import org.Th3Hermit.survivalgames.logging.LoggingManager;
-import org.Th3Hermit.survivalgames.logging.QueueManager;
-import org.Th3Hermit.survivalgames.stats.StatsManager;
-import org.Th3Hermit.survivalgames.util.ChestRatioStorage;
-import org.Th3Hermit.survivalgames.util.ChestRatioStorageOLD;
-import org.Th3Hermit.survivalgames.util.DatabaseManager;
+import org.Th3Hermit.hungergames.events.*;
+import org.Th3Hermit.hungergames.hooks.HookManager;
+import org.Th3Hermit.hungergames.logging.LoggingManager;
+import org.Th3Hermit.hungergames.logging.QueueManager;
+import org.Th3Hermit.hungergames.stats.StatsManager;
+import org.Th3Hermit.hungergames.util.ChestRatioStorage;
+import org.Th3Hermit.hungergames.util.DatabaseManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

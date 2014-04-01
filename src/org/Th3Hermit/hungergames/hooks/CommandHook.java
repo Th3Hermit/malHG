@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.hooks;
+package org.Th3Hermit.hungergames.hooks;
 
 import org.bukkit.Bukkit;
 

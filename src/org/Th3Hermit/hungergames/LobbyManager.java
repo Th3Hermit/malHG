@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
-package org.Th3Hermit.survivalgames.events;
+package org.Th3Hermit.hungergames.events;
 
-import org.Th3Hermit.survivalgames.LobbyManager;
+import org.Th3Hermit.hungergames.LobbyManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkUnloadEvent;

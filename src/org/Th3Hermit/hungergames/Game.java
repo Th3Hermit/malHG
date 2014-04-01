@@ -1,18 +1,18 @@
-package org.Th3Hermit.survivalgames;
+package org.Th3Hermit.hungergames;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.MessageManager.PrefixType;
-import org.Th3Hermit.survivalgames.api.PlayerJoinArenaEvent;
-import org.Th3Hermit.survivalgames.api.PlayerKilledEvent;
-import org.Th3Hermit.survivalgames.api.PlayerLeaveArenaEvent;
-import org.Th3Hermit.survivalgames.hooks.HookManager;
-import org.Th3Hermit.survivalgames.logging.QueueManager;
-import org.Th3Hermit.survivalgames.stats.StatsManager;
-import org.Th3Hermit.survivalgames.util.ItemReader;
-import org.Th3Hermit.survivalgames.util.Kit;
+import org.Th3Hermit.hungergames.MessageManager.PrefixType;
+import org.Th3Hermit.hungergames.api.PlayerJoinArenaEvent;
+import org.Th3Hermit.hungergames.api.PlayerKilledEvent;
+import org.Th3Hermit.hungergames.api.PlayerLeaveArenaEvent;
+import org.Th3Hermit.hungergames.hooks.HookManager;
+import org.Th3Hermit.hungergames.logging.QueueManager;
+import org.Th3Hermit.hungergames.stats.StatsManager;
+import org.Th3Hermit.hungergames.util.ItemReader;
+import org.Th3Hermit.hungergames.util.Kit;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -226,16 +226,14 @@ public class Game {
 				int spawnCount = SettingsManager.getInstance().getSpawnCount(gameID);
 
 				for (int a = 1; a <= spawnCount; a++) {
-					if (spawns.get(a) == null) {
+					if (spawns.get(a) == null) {				
 						placed = true;
 						spawns.put(a, p);
 						p.setGameMode(org.bukkit.GameMode.SURVIVAL);
-
 						p.teleport(SettingsManager.getInstance().getLobbySpawn());
 						saveInv(p);clearInv(p);	
 						p.teleport(SettingsManager.getInstance().getSpawnPoint(gameID, a));
-
-						p.setHealth(p.getMaxHealth());p.setFoodLevel(20);clearInv(p);
+						p.setHealth(p.getHealth());p.setFoodLevel(20);clearInv(p);
 
 						activePlayers.add(p);sm.addPlayer(p, gameID);
 

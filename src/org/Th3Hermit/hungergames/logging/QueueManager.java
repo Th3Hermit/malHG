@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.logging;
+package org.Th3Hermit.hungergames.logging;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,10 +9,10 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SettingsManager;
+import org.Th3Hermit.hungergames.SurvivalGames;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

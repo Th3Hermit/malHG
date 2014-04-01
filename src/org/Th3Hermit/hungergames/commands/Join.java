@@ -1,12 +1,12 @@
-package org.Th3Hermit.survivalgames.commands;
+package org.Th3Hermit.hungergames.commands;
 
 
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.MessageManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
-import org.Th3Hermit.survivalgames.MessageManager.PrefixType;
-import org.bukkit.ChatColor;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.MessageManager;
+import org.Th3Hermit.hungergames.SettingsManager;
+import org.Th3Hermit.hungergames.MessageManager.PrefixType;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 
 
 public class Join implements SubCommand{

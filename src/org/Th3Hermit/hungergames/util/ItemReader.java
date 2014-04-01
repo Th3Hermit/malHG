@@ -1,9 +1,9 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.SurvivalGames;
+import org.Th3Hermit.hungergames.SurvivalGames;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -24,10 +24,22 @@ public class ItemReader {
 			encids.put(e.toString().toLowerCase().replace("_", ""), e);
 		}
 		
-		
+		encids.put("punch", Enchantment.ARROW_KNOCKBACK);
+		encids.put("power", Enchantment.ARROW_DAMAGE);
+		encids.put("flame", Enchantment.ARROW_FIRE);
+		encids.put("infinite", Enchantment.ARROW_INFINITE);
 		encids.put("sharpness", Enchantment.DAMAGE_ALL);
 		encids.put("dmg", Enchantment.DAMAGE_ALL);
 		encids.put("fire", Enchantment.FIRE_ASPECT);
+		encids.put("knockback", Enchantment.KNOCKBACK);
+		encids.put("protect", Enchantment.PROTECTION_ENVIRONMENTAL);
+		encids.put("fireprotect", Enchantment.PROTECTION_FIRE);
+		encids.put("blastprotect", Enchantment.PROTECTION_EXPLOSIONS);
+		encids.put("projectileprotect", Enchantment.PROTECTION_PROJECTILE);
+		encids.put("thorns", Enchantment.THORNS);
+		encids.put("respiration", Enchantment.WATER_WORKER);
+		encids.put("featherfalling", Enchantment.PROTECTION_FALL);
+		encids.put("aquaaffinity", Enchantment.OXYGEN);
 
 	}
 	
@@ -45,7 +57,7 @@ public class ItemReader {
 		if(split.length < 1){
 			return null;
 		}else if(split.length == 1){
-			return new ItemStack(Integer.parseInt(split[0]));
+			return new ItemStack(Integer.parseInt(split[0]));  //Material.enum has replaced ItemStack(int) ex. Material.STONE_SWORD
 		}else if(split.length == 2){
 			return new ItemStack(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
 		}else if(split.length == 3){

@@ -1,11 +1,11 @@
-package org.Th3Hermit.survivalgames.stats;
+package org.Th3Hermit.hungergames.stats;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

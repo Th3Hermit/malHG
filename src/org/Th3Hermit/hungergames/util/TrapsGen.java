@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.util;
+package org.Th3Hermit.hungergames.util;
 
 public class TrapsGen {
 

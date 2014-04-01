@@ -1,10 +1,10 @@
-package org.Th3Hermit.survivalgames.logging;
+package org.Th3Hermit.hungergames.logging;
 
 
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

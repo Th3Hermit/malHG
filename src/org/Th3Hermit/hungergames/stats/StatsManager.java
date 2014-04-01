@@ -1,4 +1,4 @@
-package org.Th3Hermit.survivalgames.stats;
+package org.Th3Hermit.hungergames.stats;
 
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.Th3Hermit.survivalgames.Game;
-import org.Th3Hermit.survivalgames.GameManager;
-import org.Th3Hermit.survivalgames.MessageManager;
-import org.Th3Hermit.survivalgames.SettingsManager;
-import org.Th3Hermit.survivalgames.MessageManager.PrefixType;
-import org.Th3Hermit.survivalgames.util.DatabaseManager;
+import org.Th3Hermit.hungergames.Game;
+import org.Th3Hermit.hungergames.GameManager;
+import org.Th3Hermit.hungergames.MessageManager;
+import org.Th3Hermit.hungergames.SettingsManager;
+import org.Th3Hermit.hungergames.MessageManager.PrefixType;
+import org.Th3Hermit.hungergames.util.DatabaseManager;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
