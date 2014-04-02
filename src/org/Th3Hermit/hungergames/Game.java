@@ -79,11 +79,11 @@ public class Game {
 	}
 
 	public void $(String msg){
-		SurvivalGames.$(msg);
+		HungerGames.$(msg);
 	}
 
 	public void debug(String msg){
-		SurvivalGames.debug(msg);
+		HungerGames.debug(msg);
 	}
 
 	public void setup() {
@@ -297,7 +297,7 @@ public class Game {
 
 
 		ArrayList<Kit>kits = GameManager.getInstance().getKits(p);
-		SurvivalGames.debug(kits+"");
+		HungerGames.debug(kits+"");
 		if(kits == null || kits.size() == 0 || !SettingsManager.getInstance().getKits().getBoolean("enabled")){
 			GameManager.getInstance().leaveKitMenu(p);
 			return;
@@ -561,8 +561,8 @@ public class Game {
 						if(p.getLastDamageCause().getEntityType() == EntityType.PLAYER){
 							Player killer = p.getKiller();
 							msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getEntityType(),
-									"player-"+(SurvivalGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(),
-									"killer-"+((killer != null)?(SurvivalGames.auth.contains(killer.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
+									"player-"+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(),
+									"killer-"+((killer != null)?(HungerGames.auth.contains(killer.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
 											+ killer.getName():"Unknown"),
 											"item-"+((killer!=null)?ItemReader.getFriendlyItemName(killer.getItemInHand().getType()) : "Unknown Item"));
 							if(killer != null && p != null)
@@ -571,7 +571,7 @@ public class Game {
 						}
 						else{
 							msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getEntityType(), "player-"
-									+(SurvivalGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
+									+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
 									+ p.getName(), "killer-"+p.getLastDamageCause().getEntityType());
 							pk = new PlayerKilledEvent(p, this, null, p.getLastDamageCause().getCause());
 
@@ -579,7 +579,7 @@ public class Game {
 						break;
 					default:
 						msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getCause().name(), 
-								"player-"+(SurvivalGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(), 
+								"player-"+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(), 
 								"killer-"+p.getLastDamageCause().getCause());
 						pk = new PlayerKilledEvent(p, this, null, p.getLastDamageCause().getCause());
 
@@ -618,14 +618,14 @@ public class Game {
 			LobbyManager.getInstance().updateWall(gameID);
 			
 		}catch (Exception e){
-			SurvivalGames.$("???????????????????????");
+			HungerGames.$("???????????????????????");
 			e.printStackTrace();
-			SurvivalGames.$("ID"+gameID);
-			SurvivalGames.$(left+"");
-			SurvivalGames.$(activePlayers.size()+"");
-			SurvivalGames.$(activePlayers.toString());
-			SurvivalGames.$(p.getName());
-			SurvivalGames.$(p.getLastDamageCause().getCause().name());
+			HungerGames.$("ID"+gameID);
+			HungerGames.$(left+"");
+			HungerGames.$(activePlayers.size()+"");
+			HungerGames.$(activePlayers.toString());
+			HungerGames.$(p.getName());
+			HungerGames.$(p.getLastDamageCause().getCause().name());
 		}
 	}
 
@@ -647,7 +647,7 @@ public class Game {
 		restoreInv(win);
 		msgmgr.broadcastFMessage(PrefixType.INFO, "game.playerwin","arena-"+gameID, "victim-"+p.getName(), "player-"+win.getName());
 		LobbyManager.getInstance().display(new String[] {
-				win.getName(), "", "Won the ", "Survival Games!"
+				win.getName(), "", "Won the ", "Hunger Games!"
 		}, gameID);
 
 		mode = GameMode.FINISHING;
@@ -805,7 +805,7 @@ public class Game {
 		p.setAllowFlight(true);
 		p.setFlying(true);
 		spectators.add(p.getName());
-		msgmgr.sendMessage(PrefixType.INFO, "You are now spectating! Use /sg spectate again to return to the lobby.", p);
+		msgmgr.sendMessage(PrefixType.INFO, "You are now spectating! Use /hg spectate again to return to the lobby.", p);
 		msgmgr.sendMessage(PrefixType.INFO, "Right click while holding shift to teleport to the next ingame player, left click to go back.", p);
 		nextspec.put(p, 0);
 	}

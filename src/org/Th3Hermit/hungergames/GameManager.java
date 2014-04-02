@@ -26,7 +26,7 @@ public class GameManager {
 
 	static GameManager instance = new GameManager();
 	private ArrayList < Game > games = new ArrayList < Game > ();
-	private SurvivalGames p;
+	private HungerGames p;
 	public static HashMap < Integer, HashSet < Block >> openedChest = new HashMap < Integer, HashSet < Block >> ();
 	private ArrayList<Kit>kits = new ArrayList<Kit>();
 	private HashSet<Player>kitsel = new HashSet<Player>();
@@ -40,7 +40,7 @@ public class GameManager {
 		return instance;
 	}
 
-	public void setup(SurvivalGames plugin) {
+	public void setup(HungerGames plugin) {
 		p = plugin;
 		LoadGames();
 		LoadKits();
@@ -77,7 +77,7 @@ public class GameManager {
 				if (c.getBoolean("sg-system.arenas." + a + ".enabled")) {
 					//SurvivalGames.$(c.getString("sg-system.arenas."+a+".enabled"));
 					//c.set("sg-system.arenas."+a+".vip",c.getBoolean("sg-system.arenas."+a+".vip", false));
-					SurvivalGames.$("Loading Arena: " + a);
+					HungerGames.$("Loading Arena: " + a);
 					loaded++;
 					games.add(new Game(a));
 					StatsManager.getInstance().addArena(a);

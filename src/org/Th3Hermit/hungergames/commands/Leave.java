@@ -21,7 +21,7 @@ public class Leave implements SubCommand {
 
     @Override
     public String help(Player p) {
-        return "/sg leave - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.leave", "Leaves the game");
+        return "/hg leave - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.leave", "Leaves the game");
     }
 
 	@Override

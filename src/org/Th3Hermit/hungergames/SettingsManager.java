@@ -52,8 +52,8 @@ public class SettingsManager {
 
 	public void setup(Plugin p) {
 		SettingsManager.p = p;
-		if (p.getConfig().getInt("config-version") == SurvivalGames.config_version) {
-			SurvivalGames.config_todate = true;
+		if (p.getConfig().getInt("config-version") == HungerGames.config_version) {
+			HungerGames.config_todate = true;
 		}else{
 			File config = new File(p.getDataFolder(), "config.yml");
 			config.delete();
@@ -87,7 +87,7 @@ public class SettingsManager {
 		saveSpawns();
 		
 		reloadKits();
-		//saveKits();
+		saveKits();
 		
 		reloadChest();
 		
@@ -145,14 +145,14 @@ public class SettingsManager {
 	}
 	
 	public boolean moveFile(File ff){
-		SurvivalGames.$("Moving outdated config file. "+f.getName());
+		HungerGames.$("Moving outdated config file. "+f.getName());
 		String name = ff.getName();
-		File ff2 = new File(SurvivalGames.getPluginDataFolder(), getNextName(name, 0));
+		File ff2 = new File(HungerGames.getPluginDataFolder(), getNextName(name, 0));
 		return ff.renameTo(ff2);
 	}
 	
 	public String getNextName(String name, int n){
-		File ff = new File(SurvivalGames.getPluginDataFolder(), name+".old"+n);
+		File ff = new File(HungerGames.getPluginDataFolder(), name+".old"+n);
 		if(!ff.exists()){
 			return ff.getName();
 		}

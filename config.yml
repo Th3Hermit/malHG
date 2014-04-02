@@ -1,12 +1,13 @@
 ################################################
-#               Survival Games                 #
+#                Hunger Games                  #
 #                                              #
 #                Developed by                  #
 #              Double0negative                 #
-#                                              #
+#  Heavily Modified by the Minealot Dev Team   #
 #                                              #
 #              http://mc-sg.org                #
 #                 voidmc.com                   #
+#                minealot.com                  #
 ################################################
 
 #Do NOT touch this!
@@ -128,8 +129,8 @@ sql:
   port: 3306
   user: 'root'
   pass: ''
-  database: 'survivalgames'
-  prefix: 'sg_'
+  database: 'hungergames'
+  prefix: 'hg_'
 
   
   

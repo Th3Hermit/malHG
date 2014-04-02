@@ -21,11 +21,11 @@ public class SetLobbySpawn implements SubCommand {
     
     @Override
     public String help(Player p) {
-        return "/sg setlobbyspawn - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.setlobbyspawn", "Set the lobby spawnpoint");
+        return "/hg setlobbyspawn - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.setlobbyspawn", "Set the lobby spawnpoint");
     }
 
 	@Override
 	public String permission() {
-		return "sg.admin.setlobby";
+		return "hg.admin.setlobby";
 	}
 }

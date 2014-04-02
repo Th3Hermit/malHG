@@ -8,7 +8,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -61,13 +61,13 @@ public class UpdateChecker {
                 player.sendMessage(ChatColor.DARK_AQUA    + in[2]);
                 player.sendMessage(ChatColor.AQUA+""+ChatColor.UNDERLINE+in[3]);
                 player.sendMessage(ChatColor.DARK_BLUE+"--------------------------------------");
-                SurvivalGames.$("[Updates found!");
+                HungerGames.$("[Updates found!");
 
             }else{
-            	SurvivalGames.$("[SG][info]No updates found!");
+            	HungerGames.$("[HG][info]No updates found!");
             }   
         }catch(Exception e){
-        	SurvivalGames.$(Level.WARNING, "[SurvivalGames] could not check for updates.");
+        	HungerGames.$(Level.WARNING, "[HungerGames] could not check for updates.");
         }
     }
 }

@@ -72,11 +72,11 @@ public class SetSpawn implements SubCommand{
     
     @Override
     public String help(Player p) {
-        return "/sg setspawn next - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.setspawn", "Sets a spawn for the arena you are located in");
+        return "/hg setspawn next - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.setspawn", "Sets a spawn for the arena you are located in");
     }
 
 	@Override
 	public String permission() {
-		return "sg.admin.setarenaspawns";
+		return "hg.admin.setarenaspawns";
 	}
 }

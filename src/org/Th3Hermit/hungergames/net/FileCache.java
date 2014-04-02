@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 
 
 
@@ -33,11 +33,11 @@ public class FileCache {
     public static void loadPage(String pagename, boolean template){
         
         Scanner scan = null;          
-        File f = new File(SurvivalGames.getPluginDataFolder()+((template)?"/www/template.html": "/www/pages/"+pagename+".html"));
+        File f = new File(HungerGames.getPluginDataFolder()+((template)?"/www/template.html": "/www/pages/"+pagename+".html"));
 
         try{
             scan = new Scanner(f);
-        }catch(Exception e){System.out.println("Survival Games webstats - Could not load page: " + pagename +"    "+f.getAbsolutePath());}
+        }catch(Exception e){System.out.println("Hunger Games webstats - Could not load page: " + pagename +"    "+f.getAbsolutePath());}
         String data = "";
 
         if(scan == null){

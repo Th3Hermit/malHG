@@ -21,7 +21,7 @@ public class LobbyManagerOld implements Listener {
 
     //TODO: Possibly clean up
     Sign[][] signs;
-    SurvivalGames p;
+    HungerGames p;
     private static LobbyManagerOld instance = new LobbyManagerOld();
     public HashSet < Chunk > lobbychunks = new HashSet < Chunk > ();
 
@@ -35,7 +35,7 @@ public class LobbyManagerOld implements Listener {
     }
 
 
-    public void setup(SurvivalGames p) {
+    public void setup(HungerGames p) {
         this.p = p;
         loadSigns();
     }
@@ -297,7 +297,7 @@ public class LobbyManagerOld implements Listener {
     public void updateGameStatus() {
         // clearSigns();
         int b = signs.length - 1;
-        if (!SurvivalGames.config_todate) {
+        if (!HungerGames.config_todate) {
             signs[b][0].setLine(0, ChatColor.RED + "CONFIG");
             signs[b][0].setLine(1, ChatColor.RED + "OUTDATED!");
             signs[b][1].setLine(0, ChatColor.RED + "Please reset");
@@ -306,7 +306,7 @@ public class LobbyManagerOld implements Listener {
             signs[b][1].update();
             return;
         }
-        if (!SurvivalGames.dbcon) {
+        if (!HungerGames.dbcon) {
             signs[b][0].setLine(0, ChatColor.RED + "No Database");
             signs[b][0].update();
             return;
@@ -361,7 +361,7 @@ public class LobbyManagerOld implements Listener {
                 for (Player p: active) {
                     if (signno < signs[b].length) {
 
-                        signs[b][signno].setLine(line, (SurvivalGames.auth.contains(p.getName()) ? ChatColor.DARK_BLUE : ChatColor.BLACK) + ((p.getName().equalsIgnoreCase("Double0negative")) ? "Double0" : p.getName()));
+                        signs[b][signno].setLine(line, (HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_BLUE : ChatColor.BLACK) + ((p.getName().equalsIgnoreCase("Double0negative")) ? "Double0" : p.getName()));
                         signs[b][signno].update();
 
                         line++;
@@ -373,7 +373,7 @@ public class LobbyManagerOld implements Listener {
                 }
                 for (Player p: inactive) {
                     if (signno < signs[b].length) {
-                        signs[b][signno].setLine(line, (SurvivalGames.auth.contains(p.getName()) ? ChatColor.DARK_RED : ChatColor.GRAY) + ((p.getName().equalsIgnoreCase("Double0negative")) ? "Double0" : p.getName()));
+                        signs[b][signno].setLine(line, (HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED : ChatColor.GRAY) + ((p.getName().equalsIgnoreCase("Double0negative")) ? "Double0" : p.getName()));
                         signs[b][signno].update();
                         line++;
                         if (line == 4) {

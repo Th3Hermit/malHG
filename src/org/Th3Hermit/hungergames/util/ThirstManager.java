@@ -2,7 +2,7 @@ package org.Th3Hermit.hungergames.util;
 
 import org.Th3Hermit.hungergames.Game;
 import org.Th3Hermit.hungergames.GameManager;
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -24,7 +24,7 @@ public class ThirstManager implements Listener {
 	
 	@SuppressWarnings("deprecation")
 	public void startThirst() {
-		Bukkit.getServer().getScheduler().scheduleAsyncRepeatingTask(new SurvivalGames(), new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleAsyncRepeatingTask(new HungerGames(), new Runnable() {
     	public void run() {
     		for (Game g : GameManager.getInstance().getGames()) {
     			for (Player p : g.getAllPlayers()) {

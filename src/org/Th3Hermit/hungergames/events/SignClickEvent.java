@@ -27,7 +27,7 @@ public class SignClickEvent implements Listener{
         //System.out.println("Clicked sign");
         String[] lines = thisSign.getLines();
         if(lines.length<3) return;
-        if(lines[0].equalsIgnoreCase("[SurvivalGames]")) {
+        if(lines[0].equalsIgnoreCase("[HungerGames]")) {
             e.setCancelled(true);
             try{
                 if(lines[2].equalsIgnoreCase("Auto Assign")){

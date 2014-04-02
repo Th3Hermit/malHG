@@ -26,7 +26,7 @@ public class LobbyWall {
 
     public boolean loadSign(World w, int x1, int x2, int z1, int z2, int y1) {
         boolean usingx = (x1 == x2) ? false : true;
-        SurvivalGames.debug(w + " " + x1 + " " + x2 + " " + z1 + " " + z2 + " " + y1 + " " + usingx);
+        HungerGames.debug(w + " " + x1 + " " + x2 + " " + z1 + " " + z2 + " " + y1 + " " + usingx);
         int dir = new Location(w, x1, y1, z1).getBlock().getData();  //replace with .getType()? 
         if (usingx) {
             for (int a = Math.max(x1, x2); a >= Math.min(x1, x2); a--) {
@@ -35,34 +35,34 @@ public class LobbyWall {
                 if (b instanceof Sign) {
                     signs.add((Sign) b);
                     LobbyManager.lobbychunks.add(b.getChunk());
-                    SurvivalGames.debug("usingx - " + b.getLocation().toString());
+                    HungerGames.debug("usingx - " + b.getLocation().toString());
                 } else {
-                    SurvivalGames.debug("Not a sign" + b.getType().toString());
+                    HungerGames.debug("Not a sign" + b.getType().toString());
                     return false;
                 }
             }
         } else {
             for (int a = Math.min(z1, z2); a <= Math.max(z1, z2); a++) {
-            	SurvivalGames.debug(a);
+            	HungerGames.debug(a);
                 Location l = new Location(w, x1, y1, a);
                 BlockState b = l.getBlock().getState();
                 if (b instanceof Sign) {
                     signs.add((Sign) b);
                     LobbyManager.lobbychunks.add(b.getChunk());
-                    SurvivalGames.debug("notx - " + b.getLocation().toString());
+                    HungerGames.debug("notx - " + b.getLocation().toString());
                 } else {
-                	SurvivalGames.debug("Not a sign" + b.getType().toString());
+                	HungerGames.debug("Not a sign" + b.getType().toString());
                     return false;
                 }
             }
         }
-        SurvivalGames.debug("dir: " + dir);
+        HungerGames.debug("dir: " + dir);
         if (dir == 3 || dir == 5) {
             Collections.reverse(signs);
         }
-        addMsg("SurvivalGames");
-        addMsg("Double0negative");
-        addMsg("mc-sg.org");
+        addMsg("HungerGames");
+        addMsg("Minealot");
+        addMsg("minealot.com");
         addMsg("Game id: " + gameid);
         update();
         return true;
@@ -86,7 +86,7 @@ public class LobbyWall {
         Sign s1 = signs.get(1);
 
         //sign 0
-        s0.setLine(0, "[SurvivalGames]");
+        s0.setLine(0, "[HungerGames]");
         s0.setLine(1, "Click to join");
         s0.setLine(2, "Arena " + gameid);
 

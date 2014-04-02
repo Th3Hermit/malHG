@@ -34,12 +34,12 @@ public class Teleport implements SubCommand{
 
 	@Override
 	public String help(Player p) {
-		return "/sg tp <arenaid> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.teleport","Teleport to an arena");
+		return "/hg tp <arenaid> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.teleport","Teleport to an arena");
 	}
 
 	@Override
 	public String permission() {
-		return "sg.arena.teleport";
+		return "hg.arena.teleport";
 	}
 
 }

@@ -42,11 +42,11 @@ public class Enable implements SubCommand{
 
 	@Override
 	public String help(Player p) {
-		return "/sg enable <id> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.enable", "Enables arena <id>");
+		return "/hg enable <id> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.enable", "Enables arena <id>");
 	}
 
 	@Override
 	public String permission() {
-		return "sg.arena.enable";
+		return "hg.arena.enable";
 	}
 }

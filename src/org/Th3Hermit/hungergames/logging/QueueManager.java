@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.Th3Hermit.hungergames.Game;
 import org.Th3Hermit.hungergames.GameManager;
 import org.Th3Hermit.hungergames.SettingsManager;
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -38,7 +38,7 @@ public class QueueManager {
 	}
 
 	public void setup(){
-		baseDir = new File(SurvivalGames.getPluginDataFolder()+"/ArenaData/");
+		baseDir = new File(HungerGames.getPluginDataFolder()+"/ArenaData/");
 		try{
 			if(!baseDir.exists()){
 				baseDir.mkdirs();
@@ -193,7 +193,7 @@ public class QueueManager {
 				long t1 = new Date().getTime();
 				int pt = SettingsManager.getInstance().getConfig().getInt("rollback.per-tick", 100);
 				while(a>=0 && (rb < pt|| shutdown)){
-					SurvivalGames.debug("Reseting "+a);
+					HungerGames.debug("Reseting "+a);
 					BlockData result = data.get(a);
 					if(result.getGameId() == game.getID()){
 
@@ -220,11 +220,11 @@ public class QueueManager {
 							new Rollback(id, shutdown, totalRollback + rb, iteration+1, time), 1);
 				}
 				else{
-					SurvivalGames.$ ("Arena "+id+" reset. Rolled back "+(totalRollback+rb)+" blocks in "+iteration+" iterations ("+pt+" blocks per iteration Total time spent rolling back was "+time+"ms)");
+					HungerGames.$ ("Arena "+id+" reset. Rolled back "+(totalRollback+rb)+" blocks in "+iteration+" iterations ("+pt+" blocks per iteration Total time spent rolling back was "+time+"ms)");
 					game.resetCallback();
 				}
 			}else{
-				SurvivalGames.$ ("Arena "+id+" reset. Rolled back "+totalRollback+" blocks in "+iteration+" iterations. Total time spent rolling back was "+time+"ms");
+				HungerGames.$ ("Arena "+id+" reset. Rolled back "+totalRollback+" blocks in "+iteration+" iterations. Total time spent rolling back was "+time+"ms");
 				game.resetCallback();
 			}
 		}

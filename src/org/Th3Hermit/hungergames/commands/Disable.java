@@ -37,10 +37,10 @@ public class Disable implements SubCommand{
     }
     @Override
     public String help(Player p) {
-        return "/sg disable <id> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.disable", "Disables arena <id>");
+        return "/hg disable <id> - " + SettingsManager.getInstance().getMessageConfig().getString("messages.help.disable", "Disables arena <id>");
     }
 	@Override
 	public String permission() {
-		return "sg.arena.disable";
+		return "hg.arena.disable";
 	}
 }

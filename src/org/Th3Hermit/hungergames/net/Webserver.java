@@ -3,7 +3,7 @@ package org.Th3Hermit.hungergames.net;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 
 
 public class Webserver extends Thread {
@@ -12,7 +12,7 @@ public class Webserver extends Thread {
         try{
         ServerSocket st =  new ServerSocket(880);
 
-            while (!SurvivalGames.isDisabling()) {
+            while (!HungerGames.isDisabling()) {
 
                 Socket skt = st.accept();
 

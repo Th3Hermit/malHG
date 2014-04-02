@@ -29,7 +29,7 @@ public class LobbyManager {
 		return instance;
 	}
 
-	public void setup(SurvivalGames p) {
+	public void setup(HungerGames p) {
 		loadSigns();
 	}
 
@@ -43,7 +43,7 @@ public class LobbyManager {
 
 	public void loadSign(int a) {
 		try{
-		SurvivalGames.debug("sg-system.lobby.signs." + a + ".world");
+		HungerGames.debug("sg-system.lobby.signs." + a + ".world");
 		World w = Bukkit.getWorld(s.getString("sg-system.lobby.signs." + a + ".world"));
 		int x1 = s.getInt("sg-system.lobby.signs." + a + ".x1");
 		int y1 = s.getInt("sg-system.lobby.signs." + a + ".y1");

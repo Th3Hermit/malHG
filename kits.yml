@@ -1,7 +1,3 @@
-
-
-
-    
 ###########################################################
 #######################  Kits #############################
 ###########################################################
@@ -22,12 +18,31 @@
 # Example: diamond sword with 1 item, full durabilty, shaprness 4, knockback 2 and the name killer
 #     276, 1, 0, sharpness: 4 knockback: 2, killer
 #
+# Available Enchantments:		
+#punch
+#power
+#flame
+#infinite
+#sharpness
+#dmg
+#fire
+#knockback
+#protect
+#fireprotect
+#blastprotect
+#projectileprotect
+#thorns
+#respiration
+#featherfalling
+#aquaaffinity
+#
+
 
 #DONT TOUCH THIS
-version: 1
+version: 2
 
 
-enabled: false
+enabled: true
 
 
 ## Kit Display Mode 
@@ -36,9 +51,7 @@ enabled: false
 #  SHOW_ICON    = Show only the icon
 #  AUTO_SELECT  = Auto select the top level kit
 
-kit-select-mode: 'SHOW_ALL'
-
-
+kit-select-mode: 'AUTO_SELECT'
 
 
 kits:

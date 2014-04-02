@@ -112,20 +112,20 @@ public class CommandHandler implements CommandExecutor {
 
 		Player player = (Player) sender;
 
-		if (SurvivalGames.config_todate == false) {
+		if (HungerGames.config_todate == false) {
 			msgmgr.sendMessage(PrefixType.WARNING, "The config file is out of date. Please tell an administrator to reset the config.", player);
 			return true;
 		}
 
-		if (SurvivalGames.dbcon == false) {
+		if (HungerGames.dbcon == false) {
 			msgmgr.sendMessage(PrefixType.WARNING, "Could not connect to server. Plugin disabled.", player);
 			return true;
 		}
 
-		if (cmd1.getName().equalsIgnoreCase("survivalgames")) {
+		if (cmd1.getName().equalsIgnoreCase("hungergames")) {
 			if (args == null || args.length < 1) {
 				msgmgr.sendMessage(PrefixType.INFO, "Version " + pdfFile.getVersion() + " by Double0negative", player);
-				msgmgr.sendMessage(PrefixType.INFO, "Type /sg help <player | staff | admin> for command information", player);
+				msgmgr.sendMessage(PrefixType.INFO, "Type /hg help <player | staff | admin> for command information", player);
 				return true;
 			}
 			if (args[0].equalsIgnoreCase("help")) {
@@ -158,7 +158,7 @@ public class CommandHandler implements CommandExecutor {
 			args = (String[]) l.toArray(new String[0]);
 			if (!commands.containsKey(sub)) {
 				msgmgr.sendMessage(PrefixType.WARNING, "Command doesn't exist.", player);
-				msgmgr.sendMessage(PrefixType.INFO, "Type /sg help for command information", player);
+				msgmgr.sendMessage(PrefixType.INFO, "Type /hg help for command information", player);
 				return true;
 			}
 			try {
@@ -166,7 +166,7 @@ public class CommandHandler implements CommandExecutor {
 			} catch (Exception e) {
 				e.printStackTrace();
 				msgmgr.sendFMessage(PrefixType.ERROR, "error.command", player, "command-["+sub+"] "+Arrays.toString(args));
-				msgmgr.sendMessage(PrefixType.INFO, "Type /sg help for command information", player);
+				msgmgr.sendMessage(PrefixType.INFO, "Type /hg help for command information", player);
 			}
 			return true;
 		}

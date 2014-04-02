@@ -3,7 +3,7 @@ package org.Th3Hermit.hungergames.util;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -50,7 +50,7 @@ public class ItemReader {
 			loadIds();
 		}
 		String split[] = str.split(",");
-		SurvivalGames.debug("ItemReader: reading : "+Arrays.toString(split));
+		HungerGames.debug("ItemReader: reading : "+Arrays.toString(split));
 		for(int a = 0; a < split.length; a++){
 			split[a] = split[a].toLowerCase().trim();
 		}

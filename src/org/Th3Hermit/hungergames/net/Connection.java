@@ -51,7 +51,7 @@ public class Connection extends Thread{
         s = s + "200 OK";
         s = s + "\r\n"; 
         s = s + "Connection: close\r\n"; 
-        s = s + "Server: SurvivalGames v0\r\n"; 
+        s = s + "Server: HungerGames v0\r\n"; 
         s = s + "Content-Type: text/html\r\n";
         s = s + "\r\n";
      

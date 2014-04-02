@@ -86,7 +86,7 @@ public class HookManager {
 				}
 			}
 			if(!flag){
-				System.out.println("[Survival Games][HookManager]Condition does not contian a compare operator: "+split);
+				System.out.println("[Hunger Games][HookManager]Condition does not contian a compare operator: "+split);
 				return false;
 			}
 			try{
@@ -129,7 +129,7 @@ public class HookManager {
 					}
 				}
 			}catch(Exception e){
-				System.out.println("[Survival Games][HookManager]Error parsing value for: "+split);
+				System.out.println("[Hunger Games][HookManager]Error parsing value for: "+split);
 				return false;
 			}
 		}

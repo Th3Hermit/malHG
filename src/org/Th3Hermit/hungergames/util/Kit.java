@@ -14,9 +14,7 @@ public class Kit {
 	private double cost;
 	private ArrayList<ItemStack>items = new ArrayList<ItemStack>();
 	private ItemStack icon;
-	
-	
-	
+
 	
 	public Kit(String name){
 		this.name = name;
@@ -43,7 +41,7 @@ public class Kit {
 	
 	
 	public boolean canUse(Player p){
-		return p.hasPermission("sg.kit."+name);
+		return p.hasPermission("hg.kit."+name);
 	}
 
 

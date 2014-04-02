@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-import org.Th3Hermit.hungergames.SurvivalGames;
+import org.Th3Hermit.hungergames.HungerGames;
 
 public class MessageUtil {
 
@@ -24,14 +24,14 @@ public class MessageUtil {
 			try{
 				msg.replace("{$"+s+"}", vars.get(s));
 			}catch(Exception e){
-				SurvivalGames.$(Level.WARNING, "Failed to replace string vars. Error on "+s);
+				HungerGames.$(Level.WARNING, "Failed to replace string vars. Error on "+s);
 				error = true;
 			}
 		}
 		if(error){
-			SurvivalGames.$(Level.SEVERE, "Error replacing vars in message: "+msg);
-			SurvivalGames.$(Level.SEVERE, "Vars: "+vars.toString());
-			SurvivalGames.$(Level.SEVERE, "Vars Cache: "+varcache.toString());
+			HungerGames.$(Level.SEVERE, "Error replacing vars in message: "+msg);
+			HungerGames.$(Level.SEVERE, "Vars: "+vars.toString());
+			HungerGames.$(Level.SEVERE, "Vars Cache: "+varcache.toString());
 		}
 		return msg;
 	}
@@ -46,14 +46,14 @@ public class MessageUtil {
 			try{
 				msg = msg.replace("{$"+str+"}", varcache.get(str));
 			}catch(Exception e){
-				SurvivalGames.$(Level.WARNING,"Failed to replace string vars. Error on "+str);
+				HungerGames.$(Level.WARNING,"Failed to replace string vars. Error on "+str);
 				error = true;
 			}
 		}
 		if(error){
-			SurvivalGames.$(Level.SEVERE, "Error replacing vars in message: "+msg);
-			SurvivalGames.$(Level.SEVERE, "Vars: "+Arrays.toString(vars));
-			SurvivalGames.$(Level.SEVERE, "Vars Cache: "+varcache.toString());
+			HungerGames.$(Level.SEVERE, "Error replacing vars in message: "+msg);
+			HungerGames.$(Level.SEVERE, "Vars: "+Arrays.toString(vars));
+			HungerGames.$(Level.SEVERE, "Vars Cache: "+varcache.toString());
 		}
 
 		return msg;
