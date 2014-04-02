@@ -32,12 +32,6 @@ public class HungerGames extends JavaPlugin {
 	public static boolean config_todate = false;
 	public static int config_version = 3;
 
-	public static List < String > auth = Arrays.asList(new String[] {
-			"Double0negative", "iMalo", "Medic0987", "alex_markey", "skitscape", "AntVenom", "YoshiGenius", "pimpinpsp", "WinryR", "Jazed2011",
-			"KiwiPantz", "blackracoon", "CuppingCakes", "4rr0ws", "Fawdz", "Timothy13", "rich91", "ModernPrestige", "Snowpool", "egoshk", 
-			"nickm140",  "chaseoes", "Oceangrass", "GrailMore", "iAngelic", "Lexonia", "ChaskyT", "Anon232", "IngeniousGamer", "Avagdu" //:) Bryce, Th3Hermit 
-	});
-
 	HungerGames p = this;
 	public void onDisable() {
 		disabling = false;

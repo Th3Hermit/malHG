@@ -561,25 +561,22 @@ public class Game {
 						if(p.getLastDamageCause().getEntityType() == EntityType.PLAYER){
 							Player killer = p.getKiller();
 							msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getEntityType(),
-									"player-"+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(),
-									"killer-"+((killer != null)?(HungerGames.auth.contains(killer.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
-											+ killer.getName():"Unknown"),
+									"player-"+ p.getName(),
+									"killer-"+((killer != null)? killer.getName():"Unknown"),
 											"item-"+((killer!=null)?ItemReader.getFriendlyItemName(killer.getItemInHand().getType()) : "Unknown Item"));
 							if(killer != null && p != null)
 								sm.addKill(killer, p, gameID);
 							pk = new PlayerKilledEvent(p, this, killer, p.getLastDamageCause().getCause());
 						}
 						else{
-							msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getEntityType(), "player-"
-									+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") 
-									+ p.getName(), "killer-"+p.getLastDamageCause().getEntityType());
+							msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getEntityType(), "player-"+ p.getName(), "killer-"+p.getLastDamageCause().getEntityType());
 							pk = new PlayerKilledEvent(p, this, null, p.getLastDamageCause().getCause());
 
 						}
 						break;
 					default:
 						msgFall(PrefixType.INFO, "death."+p.getLastDamageCause().getCause().name(), 
-								"player-"+(HungerGames.auth.contains(p.getName()) ? ChatColor.DARK_RED + "" + ChatColor.BOLD : "") + p.getName(), 
+								"player-"+p.getName(), 
 								"killer-"+p.getLastDamageCause().getCause());
 						pk = new PlayerKilledEvent(p, this, null, p.getLastDamageCause().getCause());
 

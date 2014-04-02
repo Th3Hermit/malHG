@@ -3,12 +3,12 @@ package org.Th3Hermit.hungergames;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import org.Th3Hermit.hungergames.util.NameUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -24,10 +24,12 @@ public class LobbyWall {
         gameid = gid;
     }
 
+    
     public boolean loadSign(World w, int x1, int x2, int z1, int z2, int y1) {
         boolean usingx = (x1 == x2) ? false : true;
-        HungerGames.debug(w + " " + x1 + " " + x2 + " " + z1 + " " + z2 + " " + y1 + " " + usingx);
-        int dir = new Location(w, x1, y1, z1).getBlock().getData();  //replace with .getType()? 
+        HungerGames.debug(w + " " + x1 + " " + x2 + " " + z1 + " " + z2 + " " + y1 + " " + usingx); 
+        BlockFace facing = ((org.bukkit.material.Sign)new Location(w,x1,y1,z1).getBlock().getState()).getFacing();
+
         if (usingx) {
             for (int a = Math.max(x1, x2); a >= Math.min(x1, x2); a--) {
                 Location l = new Location(w, a, y1, z1);
@@ -56,8 +58,8 @@ public class LobbyWall {
                 }
             }
         }
-        HungerGames.debug("dir: " + dir);
-        if (dir == 3 || dir == 5) {
+        //HungerGames.debug("dir: " + dir);
+        if (facing == BlockFace.NORTH || facing == BlockFace.EAST) {
             Collections.reverse(signs);
         }
         addMsg("HungerGames");
@@ -111,7 +113,7 @@ public class LobbyWall {
         //live player data
         ArrayList < String > display = new ArrayList < String > ();
         for (Player p: game.getAllPlayers()) {
-            display.add((game.isPlayerActive(p) ? ChatColor.BLACK : ChatColor.GRAY) + NameUtil.stylize(p.getName(), true, !game.isPlayerActive(p)));
+            display.add((game.isPlayerActive(p) ? ChatColor.BLACK : ChatColor.GRAY) +  p.getName());
         }
 
         try {
