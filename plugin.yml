@@ -8,5 +8,5 @@ commands:
     hungergames:
         description: Hunger Games Command
         usage: /hg <command> <args>
-        aliases: [hg, hungergames, sg]
+        aliases: [hungergames, hg, sg]
 
