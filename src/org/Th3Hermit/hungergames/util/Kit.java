@@ -11,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 public class Kit {
 
 	private String name;
-	private double cost;
 	private ArrayList<ItemStack>items = new ArrayList<ItemStack>();
 	private ItemStack icon;
 
@@ -24,10 +23,6 @@ public class Kit {
 	
 	public void load(){
 		FileConfiguration c = SettingsManager.getInstance().getKits();
-		cost = c.getDouble("kits."+name+".cost", 0);
-		
-		icon = ItemReader.read(c.getString("kits."+name+".icon"));
-		System.out.println(icon);
 		List<String>cont = c.getStringList("kits."+name+".contents");
 		for(String s:cont){
 			items.add(ItemReader.read(s));
@@ -52,8 +47,5 @@ public class Kit {
 	public ItemStack getIcon(){
 		return icon;
 	}
-	
-	public double getCost(){
-		return cost;
-	}
+
 }
