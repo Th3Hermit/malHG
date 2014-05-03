@@ -282,12 +282,7 @@ public class SettingsManager {
 		flags.put("DUEL_TIME", system.getInt("hg-system.arenas." + a + ".flags.endgame-duel-time"));
 		flags.put("DUEL_ENABLED", system.getBoolean("hg-system.arenas." + a + ".flags.endgame-duel"));
 		flags.put("ARENA_NAME", system.getString("hg-system.arenas." + a + ".flags.arena-name"));
-		flags.put("ARENA_COST", system.getInt("hg-system.arenas." + a + ".flags.arena-cost"));
-		flags.put("ARENA_REWARD", system.getInt("hg-system.arenas." + a + ".flags.arena-reward"));
 		flags.put("ARENA_MAXTIME", system.getInt("hg-system.arenas." + a + ".flags.arena-maxtime"));
-		flags.put("SPONSOR_ENABLED", system.getBoolean("hg-system.arenas." + a + ".flags.sponsor-enabled"));
-		flags.put("SPONSOR_MODE", system.getInt("hg-system.arenas." + a + ".flags.sponsor-mode"));
-
 		return flags;
 
 	}
@@ -303,12 +298,7 @@ public class SettingsManager {
 		system.set("hg-system.arenas." + a + ".flags.endgame-duel-time", flags.get("DUEL_TIME"));
 		system.set("hg-system.arenas." + a + ".flags.endgame-duel", flags.get("DUEL_ENABLED"));
 		system.set("hg-system.arenas." + a + ".flags.arena-name", flags.get("ARENA_NAME"));
-		system.set("hg-system.arenas." + a + ".flags.arena-cost", flags.get("ARENA_COST"));
-		system.set("hg-system.arenas." + a + ".flags.arena-reward", flags.get("ARENA_REWARD"));
 		system.set("hg-system.arenas." + a + ".flags.arena-maxtime", flags.get("ARENA_MAXTIME"));
-		system.set("hg-system.arenas." + a + ".flags.sponsor-enabled", flags.get("SPONSOR_ENABLED"));
-		system.set("hg-system.arenas." + a + ".flags.sponsor-mode", flags.get("SPONSOR_MODE"));
-
 		saveSystemConfig();
 
 	}
