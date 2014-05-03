@@ -35,8 +35,8 @@ public class SettingsManager {
 	private File f4; //messages
 	private File f5; //chest
 	
-	private static final int KIT_VERSION = 2;
-	private static final int MESSAGE_VERSION = 1;
+	private static final int KIT_VERSION = 3;
+	private static final int MESSAGE_VERSION = 3;
 	private static final int CHEST_VERSION = 0;
 	private static final int SPAWN_VERSION = 0;
 	private static final int SYSTEM_VERSION = 0;
@@ -132,12 +132,12 @@ public class SettingsManager {
 	}
 
 	public static World getGameWorld(int game) {
-		if (SettingsManager.getInstance().getSystemConfig().getString("sg-system.arenas." + game + ".world") == null) {
+		if (SettingsManager.getInstance().getSystemConfig().getString("hg-system.arenas." + game + ".world") == null) {
 			//LobbyManager.getInstance().error(true);
 			return null;
 
 		}
-		return p.getServer().getWorld(SettingsManager.getInstance().getSystemConfig().getString("sg-system.arenas." + game + ".world"));
+		return p.getServer().getWorld(SettingsManager.getInstance().getSystemConfig().getString("hg-system.arenas." + game + ".world"));
 	}
 
 	public void reloadConfig(){
@@ -272,42 +272,42 @@ public class SettingsManager {
 	public HashMap < String, Object > getGameFlags(int a) {
 		HashMap < String, Object > flags = new HashMap < String, Object > ();
 
-		flags.put("AUTOSTART_PLAYERS", system.getInt("sg-system.arenas." + a + ".flags.autostart"));
-		flags.put("AUTOSTART_VOTE", system.getInt("sg-system.arenas." + a + ".flags.vote"));
-		flags.put("ENDGAME_ENABLED", system.getBoolean("sg-system.arenas." + a + ".flags.endgame-enabled"));
-		flags.put("ENDGAME_PLAYERS", system.getInt("sg-system.arenas." + a + ".flags.endgame-players"));
-		flags.put("ENDGAME_CHEST", system.getBoolean("sg-system.arenas." + a + ".flags.endgame-chest"));
-		flags.put("ENDGAME_LIGHTNING", system.getBoolean("sg-system.arenas." + a + ".flags.endgame-lightning"));
-		flags.put("DUEL_PLAYERS", system.getInt("sg-system.arenas." + a + ".flags.endgame-duel-players"));
-		flags.put("DUEL_TIME", system.getInt("sg-system.arenas." + a + ".flags.endgame-duel-time"));
-		flags.put("DUEL_ENABLED", system.getBoolean("sg-system.arenas." + a + ".flags.endgame-duel"));
-		flags.put("ARENA_NAME", system.getString("sg-system.arenas." + a + ".flags.arena-name"));
-		flags.put("ARENA_COST", system.getInt("sg-system.arenas." + a + ".flags.arena-cost"));
-		flags.put("ARENA_REWARD", system.getInt("sg-system.arenas." + a + ".flags.arena-reward"));
-		flags.put("ARENA_MAXTIME", system.getInt("sg-system.arenas." + a + ".flags.arena-maxtime"));
-		flags.put("SPONSOR_ENABLED", system.getBoolean("sg-system.arenas." + a + ".flags.sponsor-enabled"));
-		flags.put("SPONSOR_MODE", system.getInt("sg-system.arenas." + a + ".flags.sponsor-mode"));
+		flags.put("AUTOSTART_PLAYERS", system.getInt("hg-system.arenas." + a + ".flags.autostart"));
+		flags.put("AUTOSTART_VOTE", system.getInt("hg-system.arenas." + a + ".flags.vote"));
+		flags.put("ENDGAME_ENABLED", system.getBoolean("hg-system.arenas." + a + ".flags.endgame-enabled"));
+		flags.put("ENDGAME_PLAYERS", system.getInt("hg-system.arenas." + a + ".flags.endgame-players"));
+		flags.put("ENDGAME_CHEST", system.getBoolean("hg-system.arenas." + a + ".flags.endgame-chest"));
+		flags.put("ENDGAME_LIGHTNING", system.getBoolean("hg-system.arenas." + a + ".flags.endgame-lightning"));
+		flags.put("DUEL_PLAYERS", system.getInt("hg-system.arenas." + a + ".flags.endgame-duel-players"));
+		flags.put("DUEL_TIME", system.getInt("hg-system.arenas." + a + ".flags.endgame-duel-time"));
+		flags.put("DUEL_ENABLED", system.getBoolean("hg-system.arenas." + a + ".flags.endgame-duel"));
+		flags.put("ARENA_NAME", system.getString("hg-system.arenas." + a + ".flags.arena-name"));
+		flags.put("ARENA_COST", system.getInt("hg-system.arenas." + a + ".flags.arena-cost"));
+		flags.put("ARENA_REWARD", system.getInt("hg-system.arenas." + a + ".flags.arena-reward"));
+		flags.put("ARENA_MAXTIME", system.getInt("hg-system.arenas." + a + ".flags.arena-maxtime"));
+		flags.put("SPONSOR_ENABLED", system.getBoolean("hg-system.arenas." + a + ".flags.sponsor-enabled"));
+		flags.put("SPONSOR_MODE", system.getInt("hg-system.arenas." + a + ".flags.sponsor-mode"));
 
 		return flags;
 
 	}
 	public void saveGameFlags(HashMap < String, Object > flags, int a) {
 
-		system.set("sg-system.arenas." + a + ".flags.autostart", flags.get("AUTOSTART_PLAYERS"));
-		system.set("sg-system.arenas." + a + ".flags.vote", flags.get("AUTOSTART_VOTE"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-enabled", flags.get("ENDGAME_ENABLED"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-players", flags.get("ENDGAME_PLAYERS"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-chest", flags.get("ENDGAME_CHEST"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-lightning", flags.get("ENDGAME_LIGHTNING"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-duel-players", flags.get("DUEL_PLAYERS"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-duel-time", flags.get("DUEL_TIME"));
-		system.set("sg-system.arenas." + a + ".flags.endgame-duel", flags.get("DUEL_ENABLED"));
-		system.set("sg-system.arenas." + a + ".flags.arena-name", flags.get("ARENA_NAME"));
-		system.set("sg-system.arenas." + a + ".flags.arena-cost", flags.get("ARENA_COST"));
-		system.set("sg-system.arenas." + a + ".flags.arena-reward", flags.get("ARENA_REWARD"));
-		system.set("sg-system.arenas." + a + ".flags.arena-maxtime", flags.get("ARENA_MAXTIME"));
-		system.set("sg-system.arenas." + a + ".flags.sponsor-enabled", flags.get("SPONSOR_ENABLED"));
-		system.set("sg-system.arenas." + a + ".flags.sponsor-mode", flags.get("SPONSOR_MODE"));
+		system.set("hg-system.arenas." + a + ".flags.autostart", flags.get("AUTOSTART_PLAYERS"));
+		system.set("hg-system.arenas." + a + ".flags.vote", flags.get("AUTOSTART_VOTE"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-enabled", flags.get("ENDGAME_ENABLED"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-players", flags.get("ENDGAME_PLAYERS"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-chest", flags.get("ENDGAME_CHEST"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-lightning", flags.get("ENDGAME_LIGHTNING"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-duel-players", flags.get("DUEL_PLAYERS"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-duel-time", flags.get("DUEL_TIME"));
+		system.set("hg-system.arenas." + a + ".flags.endgame-duel", flags.get("DUEL_ENABLED"));
+		system.set("hg-system.arenas." + a + ".flags.arena-name", flags.get("ARENA_NAME"));
+		system.set("hg-system.arenas." + a + ".flags.arena-cost", flags.get("ARENA_COST"));
+		system.set("hg-system.arenas." + a + ".flags.arena-reward", flags.get("ARENA_REWARD"));
+		system.set("hg-system.arenas." + a + ".flags.arena-maxtime", flags.get("ARENA_MAXTIME"));
+		system.set("hg-system.arenas." + a + ".flags.sponsor-enabled", flags.get("SPONSOR_ENABLED"));
+		system.set("hg-system.arenas." + a + ".flags.sponsor-mode", flags.get("SPONSOR_MODE"));
 
 		saveSystemConfig();
 
@@ -315,12 +315,12 @@ public class SettingsManager {
 
 	public Location getLobbySpawn() {
 		try{
-			return new Location(Bukkit.getWorld(system.getString("sg-system.lobby.spawn.world")),
-				system.getInt("sg-system.lobby.spawn.x"),
-				system.getInt("sg-system.lobby.spawn.y"),
-				system.getInt("sg-system.lobby.spawn.z"),
-				system.getInt("sg-system.lobby.spawn.yaw"),
-				system.getInt("sg-system.lobby.spawn.pitch"));
+			return new Location(Bukkit.getWorld(system.getString("hg-system.lobby.spawn.world")),
+				system.getInt("hg-system.lobby.spawn.x"),
+				system.getInt("hg-system.lobby.spawn.y"),
+				system.getInt("hg-system.lobby.spawn.z"),
+				system.getInt("hg-system.lobby.spawn.yaw"),
+				system.getInt("hg-system.lobby.spawn.pitch"));
 		}catch(Exception e){
 			return null;
 		}
@@ -336,12 +336,12 @@ public class SettingsManager {
 	}
 	
 	public void setLobbySpawn(Location l) {
-		system.set("sg-system.lobby.spawn.world", l.getWorld().getName());
-		system.set("sg-system.lobby.spawn.x", l.getBlockX());
-		system.set("sg-system.lobby.spawn.y", l.getBlockY());
-		system.set("sg-system.lobby.spawn.z", l.getBlockZ());
-		system.set("sg-system.lobby.spawn.yaw", l.getYaw());
-		system.set("sg-system.lobby.spawn.pitch", l.getPitch());
+		system.set("hg-system.lobby.spawn.world", l.getWorld().getName());
+		system.set("hg-system.lobby.spawn.x", l.getBlockX());
+		system.set("hg-system.lobby.spawn.y", l.getBlockY());
+		system.set("hg-system.lobby.spawn.z", l.getBlockZ());
+		system.set("hg-system.lobby.spawn.yaw", l.getYaw());
+		system.set("hg-system.lobby.spawn.pitch", l.getPitch());
 
 	}
 
