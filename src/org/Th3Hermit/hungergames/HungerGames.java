@@ -108,6 +108,7 @@ public class HungerGames extends JavaPlugin {
 			pm.registerEvents(new BandageUse(), p);
 			pm.registerEvents(new KitEvents(), p);
 			pm.registerEvents(new KeepLobbyLoadedEvent(), p);
+			pm.registerEvents(new PoisonEvent(), p);
 
 
 			for (Player p: Bukkit.getOnlinePlayers()) {
