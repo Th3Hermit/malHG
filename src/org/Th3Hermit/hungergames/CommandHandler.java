@@ -13,6 +13,7 @@ import org.Th3Hermit.hungergames.commands.Enable;
 import org.Th3Hermit.hungergames.commands.Flag;
 import org.Th3Hermit.hungergames.commands.ForceStart;
 import org.Th3Hermit.hungergames.commands.Join;
+import org.Th3Hermit.hungergames.commands.KitOp;
 import org.Th3Hermit.hungergames.commands.Leave;
 import org.Th3Hermit.hungergames.commands.LeaveQueue;
 import org.Th3Hermit.hungergames.commands.ListArenas;
@@ -56,6 +57,7 @@ public class CommandHandler implements CommandExecutor {
 		commands.put("setspawn", new SetSpawn());
 		commands.put("getcount", new ListArenas());
 		commands.put("disable", new Disable());
+		commands.put("forcestart", new ForceStart());
 		commands.put("start", new ForceStart());
 		commands.put("enable", new Enable());
 		commands.put("vote", new Vote());
@@ -71,13 +73,14 @@ public class CommandHandler implements CommandExecutor {
 		commands.put("list", new ListPlayers());
 		commands.put("tp", new Teleport());
 		commands.put("reload", new Reload());
+		commands.put("kitop", new KitOp());
 //		commands.put("test", new Test());
 
 		// commands.put("sponsor", new Sponsor());
 	}
 
 	private void loadHelpInfo() {
-		//you can do this by iterating thru the hashmap from a certian index btw instead of using a new hashmap,
+		//you can do this by iterating thru the hashmap from a certain index btw instead of using a new hashmap,
 		//plus, instead of doing three differnet ifs, just iterate thru and check if the value == the page
 		helpinfo.put("createarena", 3);
 		helpinfo.put("join", 1);
@@ -85,6 +88,7 @@ public class CommandHandler implements CommandExecutor {
 		helpinfo.put("setspawn", 3);
 		helpinfo.put("getcount", 3);
 		helpinfo.put("disable", 2);
+		helpinfo.put("forcestart", 2);
 		helpinfo.put("start", 2);
 		helpinfo.put("enable", 2);
 		helpinfo.put("vote", 1);
@@ -95,8 +99,8 @@ public class CommandHandler implements CommandExecutor {
 		helpinfo.put("flag", 3);
 		helpinfo.put("spectate", 1);
 		helpinfo.put("lq", 1);
-		helpinfo.put("leavequeue", 1);
 		helpinfo.put("list", 1);
+		helpinfo.put("kitop", 3);
 		commands.put("reload", new Reload());
 
 		//helpinfo.put("sponsor", 1);
@@ -106,7 +110,7 @@ public class CommandHandler implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd1, String commandLabel, String[] args) {
 		PluginDescriptionFile pdfFile = plugin.getDescription();
 		if (!(sender instanceof Player)) {
-			msgmgr.logMessage(PrefixType.WARNING, "Only in-game players can use SurvivalGames commands! ");
+			msgmgr.logMessage(PrefixType.WARNING, "Only in-game players can use HungerGames commands! ");
 			return true;
 		}
 
@@ -124,7 +128,7 @@ public class CommandHandler implements CommandExecutor {
 
 		if (cmd1.getName().equalsIgnoreCase("hungergames")) {
 			if (args == null || args.length < 1) {
-				msgmgr.sendMessage(PrefixType.INFO, "Version " + pdfFile.getVersion() + " by Double0negative", player);
+				msgmgr.sendMessage(PrefixType.INFO, "Version " + pdfFile.getVersion() + " by Minealot", player);
 				msgmgr.sendMessage(PrefixType.INFO, "Type /hg help <player | staff | admin> for command information", player);
 				return true;
 			}
