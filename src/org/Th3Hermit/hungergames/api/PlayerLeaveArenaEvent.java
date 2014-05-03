@@ -26,7 +26,7 @@ public class PlayerLeaveArenaEvent extends Event {
     public Game getGame() {
     	return game;
     }
- 
+
     public HandlerList getHandlers() {
         return handlers;
     }

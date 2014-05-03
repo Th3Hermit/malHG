@@ -58,6 +58,8 @@ public class ItemReader {
 			return null;
 		}else if(split.length == 1){
 			return new ItemStack(Integer.parseInt(split[0]));  //Material.enum has replaced ItemStack(int) ex. Material.STONE_SWORD
+		/*}else if(split.length == 1){
+			return new ItemStack(Material.getMaterial(split[0]));*/	
 		}else if(split.length == 2){
 			return new ItemStack(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
 		}else if(split.length == 3){

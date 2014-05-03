@@ -27,7 +27,7 @@ public class CommandCatch implements Listener{
             return;
         if(event.getPlayer().isOp() || event.getPlayer().hasPermission("hg.staff.nocmdblock"))
             return;
-        else if(m.startsWith("/hg") || m.startsWith("/hungergames")|| m.startsWith("/sg")||m.startsWith("/survivalgames")||m.startsWith("/msg")){
+        else if(m.startsWith("/hungergames") || m.startsWith("/hg")|| m.startsWith("/sg")||m.startsWith("/survivalgames")||m.startsWith("/msg")){
             return;
         }
         else if (SettingsManager.getInstance().getConfig().getStringList("cmdwhitelist").contains(m)) {
