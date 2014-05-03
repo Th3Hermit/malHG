@@ -1,7 +1,7 @@
 name: MinealotHungerGames
 version: ${project.version}.${BUILD_NUMBER}
 main: org.Th3Hermit.hungergames.HungerGames
-authors: [Th3Hermit, Keepsedge, Double0negative]
+authors: [Double0negative, Th3Hermit]
 description: Fully Automated Hunger Games Plugin!
 
 commands:
