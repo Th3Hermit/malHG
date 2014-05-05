@@ -6,7 +6,6 @@ import org.Th3Hermit.hungergames.MessageManager;
 import org.Th3Hermit.hungergames.SettingsManager;
 import org.Th3Hermit.hungergames.MessageManager.PrefixType;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
 
 
 public class Join implements SubCommand{

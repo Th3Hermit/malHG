@@ -11,17 +11,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.Potion;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
 public class KitOp implements SubCommand{
@@ -60,15 +55,26 @@ public class KitOp implements SubCommand{
 				swordlore.add(ChatColor.RED + "can smite the");
 				swordlore.add(ChatColor.RED + "strongest of foes");
 				OpSwordmeta.setLore(swordlore);
-				OpSword.setItemMeta(OpSwordmeta);				
+				OpSword.setItemMeta(OpSwordmeta);	
+				
+				ItemStack OpSword2 = new ItemStack(Material.IRON_SWORD, 1);
+				OpSword2.addEnchantment(Enchantment.DAMAGE_ALL, 5);
+				OpSword2.addEnchantment(Enchantment.KNOCKBACK , 2);
+				ItemMeta OpSword2meta = OpSword.getItemMeta();
+				OpSword2meta.setDisplayName("Wither");
+				List<String> sword2lore = new ArrayList<String>();
+				sword2lore.add(ChatColor.GRAY + "Wither I");
+				OpSword2meta.setLore(sword2lore);
+				OpSword2.setItemMeta(OpSword2meta);
+				
 				Potion nightvision = new Potion(PotionType.NIGHT_VISION, 1);
 				Potion swiftness2 = new Potion(PotionType.SPEED, 2);
 				Potion regen2 = new Potion(PotionType.REGEN, 2);
 				Potion slowness = new Potion(PotionType.SLOWNESS, 1);
 				Potion weakness = new Potion(PotionType.WEAKNESS, 1);
 				ItemStack OpHelmet = new ItemStack(Material.LEATHER_HELMET, 1);
-				OpHelmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-				OpHelmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+				OpHelmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL,4);
+				OpHelmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
 				OpHelmet.addEnchantment(Enchantment.WATER_WORKER, 1);
 				OpHelmet.addEnchantment(Enchantment.OXYGEN, 3);
 				OpHelmet.addEnchantment(Enchantment.THORNS, 3);
@@ -82,10 +88,10 @@ public class KitOp implements SubCommand{
 				OpHelmetmeta.setColor(Color.BLACK);
 				OpHelmet.setItemMeta(OpHelmetmeta);
 				ItemStack OpChest = new ItemStack(Material.LEATHER_CHESTPLATE, 1);
-				OpChest.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-				OpChest.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-				OpChest.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-				OpChest.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
+				OpChest.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+				OpChest.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
+				OpChest.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 4);
+				OpChest.addEnchantment(Enchantment.PROTECTION_FIRE, 4);
 				OpChest.addEnchantment(Enchantment.THORNS, 3);
 				OpChest.addEnchantment(Enchantment.DURABILITY, 3);
 				LeatherArmorMeta OpChestmeta = (LeatherArmorMeta) OpChest.getItemMeta();
@@ -97,8 +103,8 @@ public class KitOp implements SubCommand{
 				OpChestmeta.setColor(Color.BLACK);
 				OpChest.setItemMeta(OpChestmeta);
 				ItemStack OpPants = new ItemStack(Material.LEATHER_LEGGINGS, 1);
-				OpPants.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-				OpPants.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+				OpPants.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+				OpPants.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
 				OpPants.addEnchantment(Enchantment.THORNS, 3);
 				OpPants.addEnchantment(Enchantment.DURABILITY, 3);
 				LeatherArmorMeta OpPantsmeta = (LeatherArmorMeta) OpPants.getItemMeta();
@@ -110,9 +116,9 @@ public class KitOp implements SubCommand{
 				OpPantsmeta.setColor(Color.BLACK);
 				OpPants.setItemMeta(OpPantsmeta);
 				ItemStack OpBoots = new ItemStack(Material.LEATHER_BOOTS, 1);
-				OpBoots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-				OpBoots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-				OpBoots.addEnchantment(Enchantment.PROTECTION_FALL, 5);
+				OpBoots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+				OpBoots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
+				OpBoots.addEnchantment(Enchantment.PROTECTION_FALL, 4);
 				OpBoots.addEnchantment(Enchantment.THORNS, 3);
 				OpBoots.addEnchantment(Enchantment.DURABILITY, 3);
 				LeatherArmorMeta OpBootsmeta = (LeatherArmorMeta) OpBoots.getItemMeta();
@@ -125,6 +131,7 @@ public class KitOp implements SubCommand{
 				OpBoots.setItemMeta(OpBootsmeta);
 				pi.addItem(OpBow);
 				pi.addItem(OpSword);
+				pi.addItem(OpSword2);
 				pi.setHelmet(OpHelmet);
 				pi.setChestplate(OpChest);
 				pi.setLeggings(OpPants);

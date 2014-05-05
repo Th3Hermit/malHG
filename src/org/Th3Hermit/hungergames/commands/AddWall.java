@@ -4,7 +4,6 @@ import org.Th3Hermit.hungergames.LobbyManager;
 import org.Th3Hermit.hungergames.MessageManager;
 import org.Th3Hermit.hungergames.SettingsManager;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
 
 
 public class AddWall implements SubCommand{

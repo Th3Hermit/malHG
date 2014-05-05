@@ -7,10 +7,8 @@ import java.util.Set;
 
 import org.Th3Hermit.hungergames.Game.GameMode;
 import org.Th3Hermit.hungergames.MessageManager.PrefixType;
-import org.Th3Hermit.hungergames.api.PlayerLeaveArenaEvent;
 import org.Th3Hermit.hungergames.stats.StatsManager;
 import org.Th3Hermit.hungergames.util.Kit;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -25,11 +23,11 @@ import com.sk89q.worldedit.bukkit.selections.Selection;
 public class GameManager {
 
 	static GameManager instance = new GameManager();
-	private ArrayList < Game > games = new ArrayList < Game > ();
+	private final ArrayList<Game> games = new ArrayList<Game>();
 	private HungerGames p;
-	public static HashMap < Integer, HashSet < Block >> openedChest = new HashMap < Integer, HashSet < Block >> ();
-	private ArrayList<Kit>kits = new ArrayList<Kit>();
-	private HashSet<Player>kitsel = new HashSet<Player>();
+	public static HashMap<Integer, HashSet<Block>> openedChest = new HashMap<Integer, HashSet<Block>>();
+	private final ArrayList<Kit> kits = new ArrayList<Kit>();
+	private final HashSet<Player> kitsel = new HashSet<Player>();
 	MessageManager msgmgr = MessageManager.getInstance();
 
 	private GameManager() {
@@ -40,12 +38,12 @@ public class GameManager {
 		return instance;
 	}
 
-	public void setup(HungerGames plugin) {
+	public void setup(final HungerGames plugin) {
 		p = plugin;
 		LoadGames();
 		LoadKits();
-		for (Game g: getGames()) {
-			openedChest.put(g.getID(), new HashSet < Block > ());
+		for (final Game g : getGames()) {
+			openedChest.put(g.getID(), new HashSet<Block>());
 		}
 	}
 
@@ -57,26 +55,29 @@ public class GameManager {
 		LoadGames();
 	}
 
-
-	public void LoadKits(){
-		Set<String> kits1 = SettingsManager.getInstance().getKits().getConfigurationSection("kits").getKeys(false);
-		for(String s:kits1){
+	public void LoadKits() {
+		final Set<String> kits1 = SettingsManager.getInstance().getKits()
+				.getConfigurationSection("kits").getKeys(false);
+		for (final String s : kits1) {
 			kits.add(new Kit(s));
 		}
 	}
 
 	public void LoadGames() {
-		FileConfiguration c = SettingsManager.getInstance().getSystemConfig();
+		final FileConfiguration c = SettingsManager.getInstance()
+				.getSystemConfig();
 		games.clear();
-		int no = c.getInt("sg-system.arenano", 0);
+		final int no = c.getInt("hg-system.arenano", 0);
 		int loaded = 0;
 		int a = 1;
 		while (loaded < no) {
-			if (c.isSet("sg-system.arenas." + a + ".x1")) {
-				//c.set("sg-system.arenas."+a+".enabled",c.getBoolean("sg-system.arena."+a+".enabled", true));
-				if (c.getBoolean("sg-system.arenas." + a + ".enabled")) {
-					//SurvivalGames.$(c.getString("sg-system.arenas."+a+".enabled"));
-					//c.set("sg-system.arenas."+a+".vip",c.getBoolean("sg-system.arenas."+a+".vip", false));
+			if (c.isSet("hg-system.arenas." + a + ".x1")) {
+				// c.set("sg-system.arenas."+a+".enabled",c.getBoolean("sg-system.arena."+a+".enabled",
+				// true));
+				if (c.getBoolean("hg-system.arenas." + a + ".enabled")) {
+					// SurvivalGames.$(c.getString("sg-system.arenas."+a+".enabled"));
+					// c.set("sg-system.arenas."+a+".vip",c.getBoolean("sg-system.arenas."+a+".vip",
+					// false));
 					HungerGames.$("Loading Arena: " + a);
 					loaded++;
 					games.add(new Game(a));
@@ -84,14 +85,14 @@ public class GameManager {
 				}
 			}
 			a++;
-			
+
 		}
 		LobbyManager.getInstance().clearAllSigns();
-		
+
 	}
 
-	public int getBlockGameId(Location v) {
-		for (Game g: games) {
+	public int getBlockGameId(final Location v) {
+		for (final Game g : games) {
 			if (g.isBlockInArena(v)) {
 				return g.getID();
 			}
@@ -99,8 +100,8 @@ public class GameManager {
 		return -1;
 	}
 
-	public int getPlayerGameId(Player p) {
-		for (Game g: games) {
+	public int getPlayerGameId(final Player p) {
+		for (final Game g : games) {
 			if (g.isPlayerActive(p)) {
 				return g.getID();
 			}
@@ -108,8 +109,8 @@ public class GameManager {
 		return -1;
 	}
 
-	public int getPlayerSpectateId(Player p) {
-		for (Game g: games) {
+	public int getPlayerSpectateId(final Player p) {
+		for (final Game g : games) {
 			if (g.isSpectator(p)) {
 				return g.getID();
 			}
@@ -117,8 +118,8 @@ public class GameManager {
 		return -1;
 	}
 
-	public boolean isPlayerActive(Player player) {
-		for (Game g: games) {
+	public boolean isPlayerActive(final Player player) {
+		for (final Game g : games) {
 			if (g.isPlayerActive(player)) {
 				return true;
 			}
@@ -126,8 +127,8 @@ public class GameManager {
 		return false;
 	}
 
-	public boolean isPlayerInactive(Player player) {
-		for (Game g: games) {
+	public boolean isPlayerInactive(final Player player) {
+		for (final Game g : games) {
 			if (g.isPlayerActive(player)) {
 				return true;
 			}
@@ -135,8 +136,8 @@ public class GameManager {
 		return false;
 	}
 
-	public boolean isSpectator(Player player) {
-		for (Game g: games) {
+	public boolean isSpectator(final Player player) {
+		for (final Game g : games) {
 			if (g.isSpectator(player)) {
 				return true;
 			}
@@ -144,35 +145,37 @@ public class GameManager {
 		return false;
 	}
 
-	public void removeFromOtherQueues(Player p, int id) {
-		for (Game g: getGames()) {
+	public void removeFromOtherQueues(final Player p, final int id) {
+		for (final Game g : getGames()) {
 			if (g.isInQueue(p) && g.getID() != id) {
 				g.removeFromQueue(p);
-				msgmgr.sendMessage(PrefixType.INFO, "Removed from the queue in arena " + g.getID(), p);
+				msgmgr.sendMessage(PrefixType.INFO,
+						"Removed from the queue in arena " + g.getID(), p);
 			}
 		}
 	}
 
-	public boolean isInKitMenu(Player p){
+	public boolean isInKitMenu(final Player p) {
 		return kitsel.contains(p);
 	}
 
-	public void leaveKitMenu(Player p){
+	public void leaveKitMenu(final Player p) {
 		kitsel.remove(p);
 	}
 
-	public void openKitMenu(Player p){
+	public void openKitMenu(final Player p) {
 		kitsel.add(p);
 	}
 
 	@SuppressWarnings("deprecation")
-	public void selectKit(Player p, int i) {
+	public void selectKit(final Player p, final int i) {
 		p.getInventory().clear();
-		ArrayList<Kit>kits = getKits(p);
-		if(i <= kits.size()){
-			Kit k = getKits(p).get(i);
-			if(k!=null){
-				p.getInventory().setContents(k.getContents().toArray(new ItemStack[0]));
+		final ArrayList<Kit> kits = getKits(p);
+		if (i <= kits.size()) {
+			final Kit k = getKits(p).get(i);
+			if (k != null) {
+				p.getInventory().setContents(
+						k.getContents().toArray(new ItemStack[0]));
 			}
 		}
 		p.updateInventory();
@@ -183,9 +186,9 @@ public class GameManager {
 		return games.size();
 	}
 
-	public Game getGame(int a) {
-		//int t = gamemap.get(a);
-		for (Game g: games) {
+	public Game getGame(final int a) {
+		// int t = gamemap.get(a);
+		for (final Game g : games) {
 			if (g.getID() == a) {
 				return g;
 			}
@@ -193,28 +196,28 @@ public class GameManager {
 		return null;
 	}
 
-	public void removePlayer(Player p, boolean b) {
+	public void removePlayer(final Player p, final boolean b) {
 		getGame(getPlayerGameId(p)).removePlayer(p, b);
 	}
 
-	public void removeSpectator(Player p) {
+	public void removeSpectator(final Player p) {
 		getGame(getPlayerSpectateId(p)).removeSpectator(p);
 	}
 
-	public void disableGame(int id) {
+	public void disableGame(final int id) {
 		getGame(id).disable();
 	}
 
-	public void enableGame(int id) {
+	public void enableGame(final int id) {
 		getGame(id).enable();
 	}
 
-	public ArrayList < Game > getGames() {
+	public ArrayList<Game> getGames() {
 		return games;
 	}
 
-	public GameMode getGameMode(int a) {
-		for (Game g: games) {
+	public GameMode getGameMode(final int a) {
+		for (final Game g : games) {
 			if (g.getID() == a) {
 				return g.getMode();
 			}
@@ -222,36 +225,38 @@ public class GameManager {
 		return null;
 	}
 
-	public ArrayList<Kit> getKits(Player p){
-		ArrayList<Kit>k = new ArrayList<Kit>();
-		for(Kit kit: kits){
-			if(kit.canUse(p)){
+	public ArrayList<Kit> getKits(final Player p) {
+		final ArrayList<Kit> k = new ArrayList<Kit>();
+		for (final Kit kit : kits) {
+			if (kit.canUse(p)) {
 				k.add(kit);
 			}
 		}
 		return k;
 	}
 
-	//TODO: Actually make this count down correctly
-	public void startGame(int a) {
+	// TODO: Actually make this count down correctly
+	public void startGame(final int a) {
 		getGame(a).countdown(10);
 	}
 
-	public void addPlayer(Player p, int g) {
-		Game game = getGame(g);
+	public void addPlayer(final Player p, final int g) {
+		final Game game = getGame(g);
 		if (game == null) {
-			MessageManager.getInstance().sendFMessage(PrefixType.ERROR, "error.input",p, "message-No game by this ID exist!");
+			MessageManager.getInstance().sendFMessage(PrefixType.ERROR,
+					"error.input", p, "message-No game by this ID exist!");
 			return;
 		}
 		getGame(g).addPlayer(p);
 	}
 
-	public void autoAddPlayer(Player pl) {
-		ArrayList < Game > qg = new ArrayList < Game > (5);
-		for (Game g: games) {
-			if (g.getMode() == Game.GameMode.WAITING) qg.add(g);
+	public void autoAddPlayer(final Player pl) {
+		final ArrayList<Game> qg = new ArrayList<Game>(5);
+		for (final Game g : games) {
+			if (g.getMode() == Game.GameMode.WAITING)
+				qg.add(g);
 		}
-		//TODO: fancy auto balance algorithm
+		// TODO: fancy auto balance algorithm
 		if (qg.size() == 0) {
 			pl.sendMessage(ChatColor.RED + "No games to join");
 			msgmgr.sendMessage(PrefixType.WARNING, "No games to join!", pl);
@@ -264,83 +269,92 @@ public class GameManager {
 		return p.getWorldEdit();
 	}
 
-	public void createArenaFromSelection(Player pl) {
-		FileConfiguration c = SettingsManager.getInstance().getSystemConfig();
-		//SettingsManager s = SettingsManager.getInstance();
+	public void createArenaFromSelection(final Player pl) {
+		final FileConfiguration c = SettingsManager.getInstance()
+				.getSystemConfig();
+		// SettingsManager s = SettingsManager.getInstance();
 
-		WorldEditPlugin we = p.getWorldEdit();
-		Selection sel = we.getSelection(pl);
+		final WorldEditPlugin we = p.getWorldEdit();
+		final Selection sel = we.getSelection(pl);
 		if (sel == null) {
-			msgmgr.sendMessage(PrefixType.WARNING, "You must make a WorldEdit Selection first!", pl);
+			msgmgr.sendMessage(PrefixType.WARNING,
+					"You must make a WorldEdit Selection first!", pl);
 			return;
 		}
-		Location max = sel.getMaximumPoint();
-		Location min = sel.getMinimumPoint();
+		final Location max = sel.getMaximumPoint();
+		final Location min = sel.getMinimumPoint();
 
-		/* if(max.getWorld()!=SettingsManager.getGameWorld() || min.getWorld()!=SettingsManager.getGameWorld()){
-            pl.sendMessage(ChatColor.RED+"Wrong World!");
-            return;
-        }*/
+		/*
+		 * if(max.getWorld()!=SettingsManager.getGameWorld() ||
+		 * min.getWorld()!=SettingsManager.getGameWorld()){
+		 * pl.sendMessage(ChatColor.RED+"Wrong World!"); return; }
+		 */
 
-		int no = c.getInt("sg-system.arenano") + 1;
-		c.set("sg-system.arenano", no);
+		int no = c.getInt("hg-system.arenano") + 1;
+		c.set("hg-system.arenano", no);
 		if (games.size() == 0) {
 			no = 1;
-		} else no = games.get(games.size() - 1).getID() + 1;
+		} else
+			no = games.get(games.size() - 1).getID() + 1;
 		SettingsManager.getInstance().getSpawns().set(("spawns." + no), null);
-		c.set("sg-system.arenas." + no + ".world", max.getWorld().getName());
-		c.set("sg-system.arenas." + no + ".x1", max.getBlockX());
-		c.set("sg-system.arenas." + no + ".y1", max.getBlockY());
-		c.set("sg-system.arenas." + no + ".z1", max.getBlockZ());
-		c.set("sg-system.arenas." + no + ".x2", min.getBlockX());
-		c.set("sg-system.arenas." + no + ".y2", min.getBlockY());
-		c.set("sg-system.arenas." + no + ".z2", min.getBlockZ());
-		c.set("sg-system.arenas." + no + ".enabled", true);
+		c.set("hg-system.arenas." + no + ".world", max.getWorld().getName());
+		c.set("hg-system.arenas." + no + ".x1", max.getBlockX());
+		c.set("hg-system.arenas." + no + ".y1", max.getBlockY());
+		c.set("hg-system.arenas." + no + ".z1", max.getBlockZ());
+		c.set("hg-system.arenas." + no + ".x2", min.getBlockX());
+		c.set("hg-system.arenas." + no + ".y2", min.getBlockY());
+		c.set("hg-system.arenas." + no + ".z2", min.getBlockZ());
+		c.set("hg-system.arenas." + no + ".enabled", true);
 
 		SettingsManager.getInstance().saveSystemConfig();
 		hotAddArena(no);
-		pl.sendMessage(ChatColor.GREEN + "Arena ID " + no + " Succesfully added");
+		pl.sendMessage(ChatColor.GREEN + "Arena ID " + no
+				+ " Succesfully added");
 
 	}
 
-	private void hotAddArena(int no) {
-		Game game = new Game(no);
+	private void hotAddArena(final int no) {
+		final Game game = new Game(no);
 		games.add(game);
 		StatsManager.getInstance().addArena(no);
-		//SurvivalGames.$("game added "+ games.size()+" "+SettingsManager.getInstance().getSystemConfig().getInt("gs-system.arenano"));
+		// SurvivalGames.$("game added "+
+		// games.size()+" "+SettingsManager.getInstance().getSystemConfig().getInt("gs-system.arenano"));
 	}
 
-	public void hotRemoveArena(int no) {
-		for (Game g: games.toArray(new Game[0])) {
+	public void hotRemoveArena(final int no) {
+		for (final Game g : games.toArray(new Game[0])) {
 			if (g.getID() == no) {
 				games.remove(getGame(no));
 			}
 		}
 	}
 
-	public void gameEndCallBack(int id) {
+	public void gameEndCallBack(final int id) {
 		getGame(id).setRBStatus("clearing chest");
-		openedChest.put(id, new HashSet < Block > ());
+		openedChest.put(id, new HashSet<Block>());
 	}
 
-	public String getStringList(int gid){
-		Game g = getGame(gid);
-		StringBuilder sb = new StringBuilder();
-		Player[][]players = g.getPlayers();
+	public String getStringList(final int gid) {
+		final Game g = getGame(gid);
+		final StringBuilder sb = new StringBuilder();
+		final Player[][] players = g.getPlayers();
 
-		sb.append(ChatColor.GREEN+"<---------------------[ Alive: "+players[0].length+" ]--------------------->\n"+ChatColor.GREEN+" ");
-		for(Player p: players[0]){
-			sb.append(p.getName()+",");
+		sb.append(ChatColor.GREEN + "<---------------------[ Alive: "
+				+ players[0].length + " ]--------------------->\n"
+				+ ChatColor.GREEN + " ");
+		for (final Player p : players[0]) {
+			sb.append(p.getName() + ",");
 		}
 		sb.append("\n\n");
-		sb.append(ChatColor.RED+  "<---------------------[ Dead: "+players[1].length+" ]---------------------->\n"+ChatColor.GREEN+" ");
-		for(Player p: players[1]){
-			sb.append(p.getName()+",");
+		sb.append(ChatColor.RED + "<---------------------[ Dead: "
+				+ players[1].length + " ]---------------------->\n"
+				+ ChatColor.GREEN + " ");
+		for (final Player p : players[1]) {
+			sb.append(p.getName() + ",");
 		}
 		sb.append("\n\n");
 
 		return sb.toString();
 	}
-
 
 }

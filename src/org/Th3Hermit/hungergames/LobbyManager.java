@@ -35,7 +35,7 @@ public class LobbyManager {
 
 	public void loadSigns() {
 	
-		for (int a = 1; a <= s.getInt("sg-system.lobby.signno"); a++) {
+		for (int a = 1; a <= s.getInt("hg-system.lobby.signno"); a++) {
 			loadSign(a);
 		}
 		//Bukkit.getScheduler().scheduleSyncRepeatingTask(GameManager.getInstance().getPlugin(), new updater(), 100L, 20L);
@@ -43,15 +43,15 @@ public class LobbyManager {
 
 	public void loadSign(int a) {
 		try{
-		HungerGames.debug("sg-system.lobby.signs." + a + ".world");
-		World w = Bukkit.getWorld(s.getString("sg-system.lobby.signs." + a + ".world"));
-		int x1 = s.getInt("sg-system.lobby.signs." + a + ".x1");
-		int y1 = s.getInt("sg-system.lobby.signs." + a + ".y1");
-		int z1 = s.getInt("sg-system.lobby.signs." + a + ".z1");
-		int x2 = s.getInt("sg-system.lobby.signs." + a + ".x2");
-		//int y2 = s.getInt("sg-system.lobby.signs." + a + ".y2");
-		int z2 = s.getInt("sg-system.lobby.signs." + a + ".z2");
-		int gameid = s.getInt("sg-system.lobby.signs." + a + ".id");
+		HungerGames.debug("hg-system.lobby.signs." + a + ".world");
+		World w = Bukkit.getWorld(s.getString("hg-system.lobby.signs." + a + ".world"));
+		int x1 = s.getInt("hg-system.lobby.signs." + a + ".x1");
+		int y1 = s.getInt("hg-system.lobby.signs." + a + ".y1");
+		int z1 = s.getInt("hg-system.lobby.signs." + a + ".z1");
+		int x2 = s.getInt("hg-system.lobby.signs." + a + ".x2");
+		//int y2 = s.getInt("hg-system.lobby.signs." + a + ".y2");
+		int z2 = s.getInt("hg-system.lobby.signs." + a + ".z2");
+		int gameid = s.getInt("hg-system.lobby.signs." + a + ".id");
 
 		LobbyWall ls = new LobbyWall(gameid);
 		if (ls.loadSign(w, x1, x2, z1, z2, y1)) {
@@ -64,12 +64,12 @@ public class LobbyManager {
 			ls.update(); //TODO
 		}
 		else{
-			/*s.set("sg-system.lobby.signs." + a, null); 
+			/*s.set("hg-system.lobby.signs." + a, null); 
 			SettingsManager.getInstance().saveSystemConfig();*/
 		}
 		}catch(Exception e){
-			s.set("sg-system.lobby.signs." + a, null);
-			s.set("sg-system.lobby.signno", s.getInt("sg-system.lobby.signno")-1);
+			s.set("hg-system.lobby.signs." + a, null);
+			s.set("hg-system.lobby.signno", s.getInt("hg-system.lobby.signno")-1);
 		}
 	}
 
@@ -135,8 +135,8 @@ public class LobbyManager {
 	public void setLobbySignsFromSelection(Player pl, int a) {
 		FileConfiguration c = SettingsManager.getInstance().getSystemConfig();
 		SettingsManager s = SettingsManager.getInstance();
-		if (!c.getBoolean("sg-system.lobby.sign.set", false)) {
-			c.set("sg-system.lobby.sign.set", true);
+		if (!c.getBoolean("hg-system.lobby.sign.set", false)) {
+			c.set("hg-system.lobby.sign.set", true);
 			s.saveSystemConfig();
 		}
 		WorldEditPlugin we = GameManager.getInstance().getWorldEdit();
@@ -151,16 +151,16 @@ public class LobbyManager {
 		}
 		Vector max = sel.getNativeMaximumPoint();
 		Vector min = sel.getNativeMinimumPoint();
-		int i = c.getInt("sg-system.lobby.signno", 0) + 1;
-		c.set("sg-system.lobby.signno", i);
-		c.set("sg-system.lobby.signs." + i + ".id", a);
-		c.set("sg-system.lobby.signs." + i + ".world", pl.getWorld().getName());
-		c.set("sg-system.lobby.signs." + i + ".x1", max.getBlockX());
-		c.set("sg-system.lobby.signs." + i + ".y1", max.getBlockY());
-		c.set("sg-system.lobby.signs." + i + ".z1", max.getBlockZ());
-		c.set("sg-system.lobby.signs." + i + ".x2", min.getBlockX());
-		c.set("sg-system.lobby.signs." + i + ".y2", min.getBlockY());
-		c.set("sg-system.lobby.signs." + i + ".z2", min.getBlockZ());
+		int i = c.getInt("hg-system.lobby.signno", 0) + 1;
+		c.set("hg-system.lobby.signno", i);
+		c.set("hg-system.lobby.signs." + i + ".id", a);
+		c.set("hg-system.lobby.signs." + i + ".world", pl.getWorld().getName());
+		c.set("hg-system.lobby.signs." + i + ".x1", max.getBlockX());
+		c.set("hg-system.lobby.signs." + i + ".y1", max.getBlockY());
+		c.set("hg-system.lobby.signs." + i + ".z1", max.getBlockZ());
+		c.set("hg-system.lobby.signs." + i + ".x2", min.getBlockX());
+		c.set("hg-system.lobby.signs." + i + ".y2", min.getBlockY());
+		c.set("hg-system.lobby.signs." + i + ".z2", min.getBlockZ());
 		pl.sendMessage(ChatColor.GREEN + "Added Lobby Wall"); //TODO
 		s.saveSystemConfig();
 		loadSign(i);

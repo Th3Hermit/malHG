@@ -7,7 +7,6 @@ import org.Th3Hermit.hungergames.SettingsManager;
 import org.Th3Hermit.hungergames.Game.GameMode;
 import org.Th3Hermit.hungergames.MessageManager.PrefixType;
 import org.bukkit.entity.Player;
-import org.bukkit.ChatColor;
 
 
 public class Enable implements SubCommand{

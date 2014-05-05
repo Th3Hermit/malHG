@@ -74,7 +74,7 @@ public class CommandHandler implements CommandExecutor {
 		commands.put("tp", new Teleport());
 		commands.put("reload", new Reload());
 		commands.put("kitop", new KitOp());
-//		commands.put("test", new Test());
+		//		commands.put("test", new Test());
 
 		// commands.put("sponsor", new Sponsor());
 	}
