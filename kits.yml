@@ -4,37 +4,45 @@
 
 
 ##  Kits
-# the permission for each kit is sg.kits.<kitname> where
+# the permission for each kit is hg.kits.<kitname> where
 # kit name is the name of the kit
-#
-# cost is the cost to use this kit. #not implemented#
-#
-# icon: the icon to be displayed with this kit
 #
 # contents: the contents of this kit
 #
 # Items are defined as 
-#    itemnumber, amount, durabilty, enchantments, name
-# Example: diamond sword with 1 item, full durabilty, shaprness 4, knockback 2 and the name killer
-#     276, 1, 0, sharpness: 4 knockback: 2, killer
+#    Material.MATERIALNAME, amount, durabilty, enchantments, name, lore, lore, lore
+# Example: iron sword with 1 item, full durabilty, shaprness 4, knockback 2 and the name killer
+#     Material.IRON_SWORD, 1, 0, sharpness: 4 knockback: 2, WidowMaker, A might sword, capable of great, destruction
+# Potion Effects
+#   To add a potion effect to an item you must add the effect to the items lore
+#   ie. Material.IRON_SWORD, 1, 0, sharpness: 4 knockback: 2, Sting, Poison I, A fearsome sword!
+# Available Potion Effects:
+#   Poison I
+#   Poison II
+#   Wither I
+#   Blindness I
+#   Confusion I
+#   Hunger I
+#   Weakness I
+#   Slowness I
 #
 # Available Enchantments:		
-#punch
-#power
-#flame
-#infinite
-#sharpness
-#dmg
-#fire
-#knockback
-#protect
-#fireprotect
-#blastprotect
-#projectileprotect
-#thorns
-#respiration
-#featherfalling
-#aquaaffinity
+#   punch
+#   power
+#   flame
+#   infinite
+#   sharpness
+#   dmg
+#   fire
+#   knockback
+#   protect
+#   fireprotect
+#   blastprotect
+#   projectileprotect
+#   thorns
+#   respiration
+#   featherfalling
+#   aquaaffinity
 #
 
 
