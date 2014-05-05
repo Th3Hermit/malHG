@@ -2,8 +2,6 @@ package org.Th3Hermit.hungergames;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -109,6 +107,7 @@ public class HungerGames extends JavaPlugin {
 			pm.registerEvents(new KitEvents(), p);
 			pm.registerEvents(new KeepLobbyLoadedEvent(), p);
 			pm.registerEvents(new PoisonEvent(), p);
+			pm.registerEvents(new WitherEvent(), p);
 
 
 			for (Player p: Bukkit.getOnlinePlayers()) {
