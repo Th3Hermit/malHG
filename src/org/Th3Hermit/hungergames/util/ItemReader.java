@@ -59,11 +59,15 @@ public class ItemReader {
 		}else if(split.length == 1){
 			return new ItemStack(Integer.parseInt(split[0]));  //Material.enum has replaced ItemStack(int) ex. Material.STONE_SWORD
 		/*}else if(split.length == 1){
-			return new ItemStack(Material.getMaterial(split[0]));*/	
+			return new ItemStack(Material.getMaterial(split[0]));*/
 		}else if(split.length == 2){
 			return new ItemStack(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+		/*}else if(split.length == 2){
+			return new ItemStack(Material.getMaterial(split[0]), Material.getMaterial(split[1]));*/			
 		}else if(split.length == 3){
 			return new ItemStack(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Short.parseShort(split[2]));
+		/*}else if(split.length == 3){
+			return new ItemStack(Material.getMaterial(split[0]), Material.getMaterial(split[1]));*/				
 		}else{
 			ItemStack i =  new ItemStack(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Short.parseShort(split[2]));
 			String encs[] = split[3].split(" ");
